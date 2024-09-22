@@ -11,7 +11,7 @@ export default {
         "2xl": "1536px", // 2X Extra large devices (large desktop)
       },
       colors: {
-        primary: "#f1ea35",
+        primary: "#1cabe2",
       },
     },
   },
