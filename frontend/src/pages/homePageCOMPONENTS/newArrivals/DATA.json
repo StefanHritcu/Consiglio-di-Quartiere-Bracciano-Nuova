@@ -1,0 +1,24 @@
+{
+  "newArrivals": [
+    {
+      "description": "Unisex Slippers - Comfortable Coding Mode",
+      "price": 32.99,
+      "id": "SlipperImg"
+    },
+    {
+      "description": "Coffee Mug - Code Fuel for Your Brain",
+      "price": 14.99,
+      "id": "TeeCupImg"
+    },
+    {
+      "description": "Men's T-Shirt - Debugging is My Cardio",
+      "price": 19.99,
+      "id": "tShirtImg"
+    },
+    {
+      "description": "Sweatshirt - Eat, Sleep, Code, MERN",
+      "price": 49.99,
+      "id": "SweatShirtImg"
+    }
+  ]
+}
