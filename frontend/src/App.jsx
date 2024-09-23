@@ -8,7 +8,7 @@ import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
 const AboutUs = lazy(() => import("./components/aboutUs/AboutUs"));
-const ContactUs = lazy(() => import("./components/contactUs/ContactUs"));
+const Contatti = lazy(() => import("./components/contatti/Contatti"));
 
 function App() {
   const onRenderApp = (
@@ -99,19 +99,19 @@ function App() {
               }
             />
             <Route
-              path="/contactus"
+              path="/contatti"
               element={
-                <Suspense fallback={<div>Loading Contact Us...</div>}>
-                  <Profiler id="Contact Us" onRender={onRenderApp}>
+                <Suspense fallback={<div>Caricamento dei Contatti...</div>}>
+                  <Profiler id="Contatti" onRender={onRenderApp}>
                     <Helmet>
-                      {/* Metadati specifici per la pagina Contact Us */}
-                      <title>Contact Us - 4Dev Shop</title>
+                      {/* Metadati specifici per la pagina Contatti */}
+                      <title>Contatti - Bracciano</title>
                       <meta
                         name="description"
-                        content="Browse through out contact us"
+                        content="Browse through out Contatti"
                       />
                     </Helmet>
-                    <ContactUs />
+                    <Contatti />
                   </Profiler>
                 </Suspense>
               }

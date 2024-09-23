@@ -4,9 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { setIsOpen } from "../../redux/slices/mainSlice";
-import { FiBox } from "react-icons/fi";
-import { TbArrowBack } from "react-icons/tb";
-import { FaStar } from "react-icons/fa6";
 import { useState, useEffect, useRef } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
@@ -65,14 +62,15 @@ function Header() {
           <animated.section
             ref={cavolo1Ref}
             style={cavolo1Spring}
-            className="bg-white text-black font-semibold text-center py-2"
+            className="bg-coloreScuro
+             text-white font-semibold text-center py-2"
           >
             <a
               className="inline-block h-8"
               href="#TODO"
               aria-label="New release announcement"
             >
-              <p className="border-b border-black hover:text-primary">
+              <p className="border-b border-white hover:border-blue-800 hover:text-primary active:text-secondary active:border-secondary transition-transform duration-3000 hover:scale-105">
                 NON PERDERTI L&apos;ULTIMO ARTICOLO!
               </p>
             </a>
@@ -80,7 +78,7 @@ function Header() {
 
           {/* RESPONSIVE HEADER LAYOUT */}
           <section
-            className={`flex justify-start items-center transform-transition duration-1000 ${
+            className={`flex justify-start items-center xl:justify-around transform-transition duration-1000 ${
               scrollingDown ? "mx-6" : "mx-2"
             } ${scrollingDown ? "xl:mx-26" : "xl:mx-20"}`}
           >
@@ -91,9 +89,9 @@ function Header() {
                 aria-label={isOpenStatus ? "Close menu" : "Open menu"}
               >
                 {isOpenStatus ? (
-                  <IoClose className="w-10 h-10 m-1" />
+                  <IoClose className="w-10 h-10 m-1 text-white" />
                 ) : (
-                  <RxHamburgerMenu className="w-10 h-10 m-1" />
+                  <RxHamburgerMenu className="w-10 h-10 m-1 text-white" />
                 )}
               </button>
             </nav>
@@ -101,7 +99,7 @@ function Header() {
             {/* LOGO */}
             <Link to="/" className="flex justify-center ml-6 items-center">
               <img src={Logo} className="w-20 h-auto py-2" alt="Logo image" />
-              <h1 className="text-white text-3xl ml-4">
+              <h1 className="text-white text-2xl md:text-3xl ml-4">
                 Bracciano Nuova
                 <span className="hidden lg:block text-xl">
                   - Consiglio di Quartiere
@@ -110,49 +108,64 @@ function Header() {
             </Link>
 
             {/* SOCIAL LINKS TABLET AND LAPTOP */}
-            <nav className="hidden md:block">
-              <div className="flex text-white ml-12">
-                <p>Seguici su</p>
-                <div className="flex justify-between items-center ml-4">
+            <nav
+              className="hidden md:block mb-6"
+              aria-label="Social Media Links"
+            >
+              <div className="flex flex-col justify-center items-center text-white ml-6 md:ml-20">
+                <p className="py-2 text-lg font-semibold">Seguici su</p>
+                <div className="flex justify-between items-center ml-2">
                   <a
-                    href="www.facebook.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.facebook.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
                   >
                     <FaFacebookF />
                   </a>
                   <a
-                    href="www.twitter.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.twitter.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Twitter"
                   >
                     <FaXTwitter />
                   </a>
                   <a
-                    href="www.instagram.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.instagram.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
                   >
                     <CiInstagram />
                   </a>
                   <a
-                    href="www.linkedin.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.linkedin.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
                   >
                     <CiLinkedin />
                   </a>
                   <a
-                    href="www.telegram.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.telegram.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram"
                   >
                     <FaTelegram />
                   </a>
                   <a
-                    href="www.whatsapp.com"
-                    className="bg-primary test-white text-2xl mx-2"
+                    href="https://www.whatsapp.com"
+                    className="bg-primary text-white text-2xl mx-2 p-2 rounded-full"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
                   >
                     <FaWhatsapp />
                   </a>
@@ -164,10 +177,10 @@ function Header() {
         <hr />
         {/* SECOND HEADER ROW OF VARIOUS LINKS */}
         <div className="hidden xl:block py-2 mb-2">
-          <nav className="flex justify-center items-center">
+          <nav className="flex justify-center text-white items-center">
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
-                location.pathname === "/" ? "border-b-2 border-yellow-500" : ""
+                location.pathname === "/" ? "border-b-2 border-secondary" : ""
               }`}
               aria-label="Go to Homepage"
               to="/"
@@ -179,7 +192,7 @@ function Header() {
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
                 location.pathname === "/shop"
-                  ? "border-b-2 border-yellow-500"
+                  ? "border-b-2 border-secondary"
                   : ""
               }`}
               aria-label="Go to Articoli"
@@ -193,7 +206,7 @@ function Header() {
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
                 location.pathname === "/aboutus"
-                  ? "border-b-2 border-yellow-500"
+                  ? "border-b-2 border-secondary"
                   : ""
               }`}
               aria-label="Go to Chi Siamo"
@@ -207,7 +220,7 @@ function Header() {
             <Link
               className={`group flex justify-between items-center py-2 mx-3 ${
                 location.pathname === "/contactus"
-                  ? "border-b-2 border-yellow-500"
+                  ? "border-b-2 border-secondary"
                   : ""
               }`}
               aria-label="Go to Contatti"
@@ -220,7 +233,7 @@ function Header() {
           </nav>
         </div>
         {/* SOCIAL LINKS ONLY FOR MOBILE */}
-        <nav className="md:hidden">
+        <nav className="md:hidden py-2">
           <div className="flex text-white ml-12">
             <p>Seguici su</p>
             <div className="flex justify-between items-center ml-4">
