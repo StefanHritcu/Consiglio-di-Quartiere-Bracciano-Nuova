@@ -44,7 +44,7 @@ function App() {
 
         <Header />
 
-        <main className="relative flex-grow">
+        <main className="relative flex-grow mt-44 sm:mt-36 xl:mt-56">
           <Routes>
             <Route
               path="/"

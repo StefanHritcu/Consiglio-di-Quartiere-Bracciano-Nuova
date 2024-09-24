@@ -176,7 +176,7 @@ function Header() {
         </div>
         <hr />
         {/* SECOND HEADER ROW OF VARIOUS LINKS */}
-        <div className="hidden xl:block py-2 mb-2">
+        <div className="hidden xl:block mb-2">
           <nav className="flex justify-center text-white items-center">
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
@@ -235,7 +235,9 @@ function Header() {
         {/* SOCIAL LINKS ONLY FOR MOBILE */}
         <nav className="md:hidden py-2">
           <div className="flex text-white ml-12">
-            <p>Seguici su</p>
+            <p>
+              Seguici <span className="hidden sm:block">su</span>
+            </p>
             <div className="flex justify-between items-center ml-4">
               <a
                 href="www.facebook.com"
