@@ -72,15 +72,15 @@ function Header() {
             className={
               isButtonFirstHeaderClicked
                 ? "invisible"
-                : "relative bg-coloreScuro text-white font-semibold text-center py-2"
+                : "relative bg-coloreScuro text-white font-semibold text-center h-auto py-2"
             }
           >
             <a
-              className="inline-block h-8"
+              className="inline-block"
               href="#TODO"
               aria-label="New release announcement"
             >
-              <p className="border-b border-white hover:border-blue-800 hover:text-primary active:text-secondary active:border-secondary transition-transform duration-3000 hover:scale-105">
+              <p className="border-b border-white text-xs extraSmall:text-sm hover:border-blue-800 hover:text-primary active:text-secondary active:border-secondary transition-transform duration-3000 hover:scale-105">
                 NON PERDERTI L&apos;ULTIMO ARTICOLO!
               </p>
             </a>
@@ -250,9 +250,9 @@ function Header() {
         </div>
         {/* SOCIAL LINKS ONLY FOR MOBILE */}
         <nav className="md:hidden py-2">
-          <div className="flex text-white ml-12">
-            <p>
-              Seguici <span className="hidden sm:block">su</span>
+          <div className="flex items-center text-white ml-2 extraSmall:ml-6 sm:ml-8">
+            <p className="flex  text-hs extraSmall:text-lg sm:text-xl">
+              Seguici <span className="hidden extraSmall:block mx-1">su</span>
             </p>
             <div className="flex justify-between items-center ml-4">
               <a

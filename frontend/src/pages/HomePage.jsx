@@ -3,6 +3,9 @@ import FriendsMeetingImage from "./../assets/images/friends-meeting.jpg";
 import { MdEvent } from "react-icons/md";
 import { GiPositionMarker } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import ShortLastArticle from "./homePageCOMPONENTS/ShortLastArticle";
+import ShortsArticlesForHomePage from "./homePageCOMPONENTS/ShortsArticlesForHomePage";
+import { GrArticle } from "react-icons/gr";
 
 function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -28,10 +31,10 @@ function HomePage() {
   return (
     <>
       <main>
-        <section>
+        <section className="flex flex-col">
           <div className="flex flex-col xl:flex-row">
             <img
-              className="-mt-4 w-auto md:w-screen xl:w-3/5 h-auto"
+              className="-mt-4 w-auto md:w-screen xl:w-[60vw] h-auto"
               src={FriendsMeetingImage}
               alt="Foto di Helena Lopes su Unsplash"
               style={shrinkStyle}
@@ -68,7 +71,21 @@ function HomePage() {
               </nav>
             </div>
           </div>
+          <section className="flex flex-col xl:flex-row-reverse">
+            <ShortLastArticle />
+            {/* VAI ALLA SEZIONE DI TUTTI GLI ARTICOLI */}
+            <Link
+              to="/articoli"
+              className="flex items-center space-x-3 mt-2 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
+            >
+              <GrArticle className="text-3xl text-blue-600" />
+              <span className="text-2xl font-bold text-blue-700 hover:underline">
+                VAI ALLA SEZIONE DI TUTTI GLI ARTICOLI
+              </span>
+            </Link>
+          </section>
         </section>
+        <ShortsArticlesForHomePage />
       </main>
     </>
   );
