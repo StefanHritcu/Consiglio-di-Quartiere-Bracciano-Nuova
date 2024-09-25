@@ -13,6 +13,7 @@ import { CiInstagram } from "react-icons/ci";
 import { CiLinkedin } from "react-icons/ci";
 import { FaTelegram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 function Header() {
   const isOpenStatus = useSelector((state) => state.forDev.isOpen);
@@ -54,6 +55,12 @@ function Header() {
     config: { duration: 200 },
   });
 
+  const [isButtonFirstHeaderClicked, setIsButtonFirstHeaderClicked] =
+    useState(false);
+  const handleCloseFirstHeader = () => {
+    setIsButtonFirstHeaderClicked(!isButtonFirstHeaderClicked);
+  };
+
   return (
     <>
       <header className="fixed top-0 w-full z-50 bg-primary">
@@ -62,8 +69,11 @@ function Header() {
           <animated.section
             ref={cavolo1Ref}
             style={cavolo1Spring}
-            className="bg-coloreScuro
-             text-white font-semibold text-center py-2"
+            className={
+              isButtonFirstHeaderClicked
+                ? "invisible"
+                : "relative bg-coloreScuro text-white font-semibold text-center py-2"
+            }
           >
             <a
               className="inline-block h-8"
@@ -74,6 +84,12 @@ function Header() {
                 NON PERDERTI L&apos;ULTIMO ARTICOLO!
               </p>
             </a>
+            <button
+              onClick={handleCloseFirstHeader}
+              className="absolute right-4 top-1.5 text-3xl"
+            >
+              <AiOutlineCloseCircle />
+            </button>
           </animated.section>
 
           {/* RESPONSIVE HEADER LAYOUT */}
@@ -99,7 +115,7 @@ function Header() {
             {/* LOGO */}
             <Link to="/" className="flex justify-center ml-6 items-center">
               <img src={Logo} className="w-20 h-auto py-2" alt="Logo image" />
-              <h1 className="text-white text-2xl md:text-3xl ml-4">
+              <h1 className="text-white text-xl sm:text-2xl md:text-3xl ml-4">
                 Bracciano Nuova
                 <span className="hidden lg:block text-xl">
                   - Consiglio di Quartiere

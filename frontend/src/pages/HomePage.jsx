@@ -21,7 +21,7 @@ function HomePage() {
 
   // Riduzione dell'immagine fino al 10% quando si scorre
   const shrinkStyle = {
-    transform: `scale(${1 - Math.min(scrollY / 4000, 0.1)})`, // Riduzione massima del 10% (0.9 di scala)
+    transform: `scale(${1 - Math.min(scrollY / 4000, 0.1)})`,
     transition: "transform 0.3s ease-in-out",
   };
 
@@ -29,9 +29,9 @@ function HomePage() {
     <>
       <main>
         <section>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col xl:flex-row">
             <img
-              className="-mt-4 w-auto md:w-3/5 h-auto"
+              className="-mt-4 w-auto md:w-screen xl:w-3/5 h-auto"
               src={FriendsMeetingImage}
               alt="Foto di Helena Lopes su Unsplash"
               style={shrinkStyle}
@@ -69,89 +69,6 @@ function HomePage() {
             </div>
           </div>
         </section>
-
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
-
-        <h1>
-          INIZIOO Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Dolor, soluta. Aliquid, totam!
-        </h1>
-        <hr />
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor,
-          soluta. Aliquid, totam!
-        </h1>
-        <hr />
       </main>
     </>
   );
