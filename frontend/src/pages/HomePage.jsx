@@ -4,8 +4,8 @@ import { MdEvent } from "react-icons/md";
 import { GiPositionMarker } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import ShortLastArticle from "./homePageCOMPONENTS/ShortLastArticle";
-import ShortsArticlesForHomePage from "./homePageCOMPONENTS/ShortsArticlesForHomePage";
 import { GrArticle } from "react-icons/gr";
+import ShortNextEvent from "./homePageCOMPONENTS/ShortNextEvent";
 
 function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -85,7 +85,7 @@ function HomePage() {
             </Link>
           </section>
         </section>
-        <ShortsArticlesForHomePage />
+        <ShortNextEvent />
       </main>
     </>
   );
