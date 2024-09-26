@@ -207,7 +207,7 @@ function Header() {
             </Link>
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
-                location.pathname === "/shop"
+                location.pathname === "/articoli"
                   ? "border-b-2 border-secondary"
                   : ""
               }`}
@@ -221,15 +221,43 @@ function Header() {
 
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
-                location.pathname === "/aboutus"
+                location.pathname === "/territorio"
                   ? "border-b-2 border-secondary"
                   : ""
               }`}
-              aria-label="Go to Chi Siamo"
-              to="/chisiamo"
+              aria-label="Go to Territorio"
+              to="/territorio"
             >
               <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                Chi Siamo
+                Territorio
+              </h2>
+            </Link>
+
+            <Link
+              className={`group flex justify-between items-center py-2 mx-6 ${
+                location.pathname === "/servizi"
+                  ? "border-b-2 border-secondary"
+                  : ""
+              }`}
+              aria-label="Go to Servizi"
+              to="/servizi"
+            >
+              <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                Servizi
+              </h2>
+            </Link>
+
+            <Link
+              className={`group flex justify-between items-center py-2 mx-6 ${
+                location.pathname === "/consiglio"
+                  ? "border-b-2 border-secondary"
+                  : ""
+              }`}
+              aria-label="Go to Il Consiglio"
+              to="/consiglio"
+            >
+              <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                Il Consiglio
               </h2>
             </Link>
 

@@ -7,8 +7,12 @@ import { lazy, Profiler, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
-const ChiSiamo = lazy(() => import("./pages/homePageCOMPONENTS/ChiSiamo"));
+const Territorio = lazy(() => import("./pages/homePageCOMPONENTS/Territorio"));
 const Contatti = lazy(() => import("./pages/homePageCOMPONENTS/Contatti"));
+const IlConsiglio = lazy(() =>
+  import("./pages/homePageCOMPONENTS/IlConsiglio")
+);
+const Servizi = lazy(() => import("./pages/homePageCOMPONENTS/Servizi"));
 
 function App() {
   const onRenderApp = (
@@ -81,19 +85,55 @@ function App() {
               }
             />
             <Route
-              path="/chisiamo"
+              path="/territorio"
               element={
-                <Suspense fallback={<div>Loading Chi Siamo...</div>}>
-                  <Profiler id="Chi Siamo" onRender={onRenderApp}>
+                <Suspense fallback={<div>Loading Territorio...</div>}>
+                  <Profiler id="Territorio" onRender={onRenderApp}>
                     <Helmet>
-                      {/* Metadati specifici per la pagina Chi Siamo */}
-                      <title>Chi Siamo - Bracciano</title>
+                      {/* Metadati specifici per la pagina Territorio */}
+                      <title>Territorio - Bracciano</title>
                       <meta
                         name="description"
-                        content="Browse through out chi siamo"
+                        content="Browse through out Territorio"
                       />
                     </Helmet>
-                    <ChiSiamo />
+                    <Territorio />
+                  </Profiler>
+                </Suspense>
+              }
+            />
+            <Route
+              path="/servizi"
+              element={
+                <Suspense fallback={<div>Loading Servizi...</div>}>
+                  <Profiler id="Servizi" onRender={onRenderApp}>
+                    <Helmet>
+                      {/* Metadati specifici per la pagina Servizi */}
+                      <title>Servizi - Bracciano</title>
+                      <meta
+                        name="description"
+                        content="Browse through out Servizi"
+                      />
+                    </Helmet>
+                    <Servizi />
+                  </Profiler>
+                </Suspense>
+              }
+            />
+            <Route
+              path="/consiglio"
+              element={
+                <Suspense fallback={<div>Loading Il Consiglio...</div>}>
+                  <Profiler id="consiglio" onRender={onRenderApp}>
+                    <Helmet>
+                      {/* Metadati specifici per la pagina Il Consiglio */}
+                      <title>Il Consiglio - Bracciano</title>
+                      <meta
+                        name="description"
+                        content="Browse through out Il Consiglio"
+                      />
+                    </Helmet>
+                    <IlConsiglio />
                   </Profiler>
                 </Suspense>
               }
