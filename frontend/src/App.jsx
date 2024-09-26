@@ -7,8 +7,8 @@ import { lazy, Profiler, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
-const AboutUs = lazy(() => import("./components/aboutUs/AboutUs"));
-const Contatti = lazy(() => import("./components/contatti/Contatti"));
+const ChiSiamo = lazy(() => import("./pages/homePageCOMPONENTS/ChiSiamo"));
+const Contatti = lazy(() => import("./pages/homePageCOMPONENTS/Contatti"));
 
 function App() {
   const onRenderApp = (
@@ -81,19 +81,19 @@ function App() {
               }
             />
             <Route
-              path="/aboutus"
+              path="/chisiamo"
               element={
-                <Suspense fallback={<div>Loading About Us...</div>}>
-                  <Profiler id="About Us" onRender={onRenderApp}>
+                <Suspense fallback={<div>Loading Chi Siamo...</div>}>
+                  <Profiler id="Chi Siamo" onRender={onRenderApp}>
                     <Helmet>
-                      {/* Metadati specifici per la pagina About Us */}
-                      <title>About Us - 4Dev Shop</title>
+                      {/* Metadati specifici per la pagina Chi Siamo */}
+                      <title>Chi Siamo - Bracciano</title>
                       <meta
                         name="description"
-                        content="Browse through out about us"
+                        content="Browse through out chi siamo"
                       />
                     </Helmet>
-                    <AboutUs />
+                    <ChiSiamo />
                   </Profiler>
                 </Suspense>
               }

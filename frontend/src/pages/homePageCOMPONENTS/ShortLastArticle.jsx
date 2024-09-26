@@ -3,6 +3,7 @@ import { IoMdPerson } from "react-icons/io";
 import { MdAccessTime } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import LastArticleExampleImage from "./../../assets/images/lastArticleExampleImage.jpg";
 
 function ShortLastArticle() {
   {
@@ -12,17 +13,17 @@ function ShortLastArticle() {
 
   return (
     <div className="max-w-2xl mx-auto p-10 bg-white shadow-md rounded-lg mt-8 xl:w-screen xl:mx-16">
-      <h1 className="text-2xl font-bold text-center text-gray-800">
+      <h1 className="text-2xl font-bold mb-2 text-center text-gray-800">
         Ultima Notizia
       </h1>
       <Link
         to="/lastarticle"
-        className="pt-6  hover:scale-105 transition-transform duration-300 block"
+        className="pt-6 hover:scale-105 transition-transform duration-300 block"
       >
         {/* IMMAGINE */}
         <img
-          src={lastArticle.imageUrl}
-          alt={lastArticle.title}
+          src={LastArticleExampleImage}
+          alt="Example image"
           className="w-full h-60 object-cover rounded-lg"
         />
         {/* TITOLO */}
