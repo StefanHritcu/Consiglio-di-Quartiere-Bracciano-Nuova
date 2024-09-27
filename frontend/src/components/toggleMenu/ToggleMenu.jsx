@@ -37,6 +37,7 @@ function ToggleMenu() {
       >
         <nav role="navigation" aria-labelledby="toggle-menu">
           <ul id="toggle-menu" className="space-y-4 mt-6 sm-mt-2 xl:mt-14">
+            {/* HOME LINK */}
             <li>
               <Link
                 className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
@@ -50,6 +51,7 @@ function ToggleMenu() {
                 <MdKeyboardArrowRight className="w-6 h-6" />
               </Link>
             </li>
+            {/* ARTICOLI LINK */}
             <li>
               <Link
                 className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
@@ -63,15 +65,44 @@ function ToggleMenu() {
                 <MdKeyboardArrowRight className="w-6 h-6" />
               </Link>
             </li>
+            {/* TERRITORIO LINK */}
             <li>
               <Link
                 className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
-                to="/chisiamo"
-                aria-label="Go to Chi Siamo"
+                to="/territorio"
+                aria-label="Go to Territorio"
                 onClick={onClickSelectLinkAndCloseToggleMenu}
               >
                 <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                  Chi Siamo
+                  Territorio
+                </h2>
+                <MdKeyboardArrowRight className="w-6 h-6" />
+              </Link>
+            </li>
+            {/* SERVIZI LINK */}
+            <li>
+              <Link
+                className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
+                to="/servizi"
+                aria-label="Go to Servizi"
+                onClick={onClickSelectLinkAndCloseToggleMenu}
+              >
+                <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                  Servizi
+                </h2>
+                <MdKeyboardArrowRight className="w-6 h-6" />
+              </Link>
+            </li>
+            {/* IL CONSIGLIO LINK */}
+            <li>
+              <Link
+                className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
+                to="/consiglio"
+                aria-label="Go to Il Consiglio"
+                onClick={onClickSelectLinkAndCloseToggleMenu}
+              >
+                <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                  Il Consiglio
                 </h2>
                 <MdKeyboardArrowRight className="w-6 h-6" />
               </Link>
