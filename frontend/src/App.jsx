@@ -4,13 +4,13 @@ import HomePage from "./pages/HomePage";
 import Footer from "./components/footer/Footer";
 import { lazy, Profiler, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
+import { FaSpinner } from "react-icons/fa";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
 const ArticoliSection = lazy(() =>
   import("./components/articoli/ArticoliSection")
 );
 const Territorio = lazy(() => import("./pages/homePageCOMPONENTS/Territorio"));
-const Contatti = lazy(() => import("./pages/homePageCOMPONENTS/Contatti"));
 const IlConsiglio = lazy(() =>
   import("./pages/homePageCOMPONENTS/IlConsiglio")
 );
@@ -61,7 +61,18 @@ function App() {
             <Route
               path="/articoli"
               element={
-                <Suspense fallback={<div>Loading Articoli...</div>}>
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-screen bg-opacity-50">
+                      <div className="flex flex-col items-center">
+                        <FaSpinner className="animate-spin text-white text-4xl mb-4" />
+                        <div className="text-white text-lg">
+                          Loading Articoli...
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
                   <Profiler id="Articoli" onRender={onRenderApp}>
                     <ArticoliSection />
                   </Profiler>
@@ -69,9 +80,41 @@ function App() {
               }
             />
             <Route
+              path="/consiglio"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-screen bg-opacity-50">
+                      <div className="flex flex-col items-center">
+                        <FaSpinner className="animate-spin text-white text-4xl mb-4" />
+                        <div className="text-white text-lg">
+                          Loading Il Consiglio...
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <Profiler id="consiglio" onRender={onRenderApp}>
+                    <IlConsiglio />
+                  </Profiler>
+                </Suspense>
+              }
+            />
+            <Route
               path="/territorio"
               element={
-                <Suspense fallback={<div>Loading Territorio...</div>}>
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-screen bg-opacity-50">
+                      <div className="flex flex-col items-center">
+                        <FaSpinner className="animate-spin text-white text-4xl mb-4" />
+                        <div className="text-white text-lg">
+                          Loading Territorio...
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
                   <Profiler id="Territorio" onRender={onRenderApp}>
                     <Territorio />
                   </Profiler>
@@ -81,29 +124,20 @@ function App() {
             <Route
               path="/servizi"
               element={
-                <Suspense fallback={<div>Loading Servizi...</div>}>
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-screen bg-opacity-50">
+                      <div className="flex flex-col items-center">
+                        <FaSpinner className="animate-spin text-white text-4xl mb-4" />
+                        <div className="text-white text-lg">
+                          Loading Servizi...
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
                   <Profiler id="Servizi" onRender={onRenderApp}>
                     <Servizi />
-                  </Profiler>
-                </Suspense>
-              }
-            />
-            <Route
-              path="/consiglio"
-              element={
-                <Suspense fallback={<div>Loading Il Consiglio...</div>}>
-                  <Profiler id="consiglio" onRender={onRenderApp}>
-                    <IlConsiglio />
-                  </Profiler>
-                </Suspense>
-              }
-            />
-            <Route
-              path="/contatti"
-              element={
-                <Suspense fallback={<div>Caricamento dei Contatti...</div>}>
-                  <Profiler id="Contatti" onRender={onRenderApp}>
-                    <Contatti />
                   </Profiler>
                 </Suspense>
               }

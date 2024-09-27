@@ -221,6 +221,20 @@ function Header() {
 
             <Link
               className={`group flex justify-between items-center py-2 mx-6 ${
+                location.pathname === "/consiglio"
+                  ? "border-b-2 border-secondary"
+                  : ""
+              }`}
+              aria-label="Go to Il Consiglio"
+              to="/consiglio"
+            >
+              <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                Il Consiglio
+              </h2>
+            </Link>
+
+            <Link
+              className={`group flex justify-between items-center py-2 mx-6 ${
                 location.pathname === "/territorio"
                   ? "border-b-2 border-secondary"
                   : ""
@@ -244,34 +258,6 @@ function Header() {
             >
               <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
                 Servizi
-              </h2>
-            </Link>
-
-            <Link
-              className={`group flex justify-between items-center py-2 mx-6 ${
-                location.pathname === "/consiglio"
-                  ? "border-b-2 border-secondary"
-                  : ""
-              }`}
-              aria-label="Go to Il Consiglio"
-              to="/consiglio"
-            >
-              <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                Il Consiglio
-              </h2>
-            </Link>
-
-            <Link
-              className={`group flex justify-between items-center py-2 mx-3 ${
-                location.pathname === "/contactus"
-                  ? "border-b-2 border-secondary"
-                  : ""
-              }`}
-              aria-label="Go to Contatti"
-              to="/contatti"
-            >
-              <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                Contatti
               </h2>
             </Link>
           </nav>

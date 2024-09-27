@@ -65,6 +65,20 @@ function ToggleMenu() {
                 <MdKeyboardArrowRight className="w-6 h-6" />
               </Link>
             </li>
+            {/* IL CONSIGLIO LINK */}
+            <li>
+              <Link
+                className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
+                to="/consiglio"
+                aria-label="Go to Il Consiglio"
+                onClick={onClickSelectLinkAndCloseToggleMenu}
+              >
+                <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
+                  Il Consiglio
+                </h2>
+                <MdKeyboardArrowRight className="w-6 h-6" />
+              </Link>
+            </li>
             {/* TERRITORIO LINK */}
             <li>
               <Link
@@ -89,33 +103,6 @@ function ToggleMenu() {
               >
                 <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
                   Servizi
-                </h2>
-                <MdKeyboardArrowRight className="w-6 h-6" />
-              </Link>
-            </li>
-            {/* IL CONSIGLIO LINK */}
-            <li>
-              <Link
-                className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
-                to="/consiglio"
-                aria-label="Go to Il Consiglio"
-                onClick={onClickSelectLinkAndCloseToggleMenu}
-              >
-                <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                  Il Consiglio
-                </h2>
-                <MdKeyboardArrowRight className="w-6 h-6" />
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="group flex justify-between items-center py-2 hover:text-violet-600 transition-transform duration-300 hover:scale-105"
-                to="/contatti"
-                aria-label="Go to Contatti"
-                onClick={onClickSelectLinkAndCloseToggleMenu}
-              >
-                <h2 className="text-2xl transition-transform duration-300 group-hover:scale-105">
-                  Contatti
                 </h2>
                 <MdKeyboardArrowRight className="w-6 h-6" />
               </Link>
