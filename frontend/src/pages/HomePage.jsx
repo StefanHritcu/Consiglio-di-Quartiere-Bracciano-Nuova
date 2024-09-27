@@ -136,21 +136,34 @@ function HomePage() {
               </nav>
             </div>
           </div>
-          <section className="flex flex-col xl:flex-row-reverse">
-            <ShortLastArticle />
-            {/* VAI ALLA SEZIONE DI TUTTI GLI ARTICOLI */}
-            <Link
-              to="/articoli"
-              className="flex items-center space-x-3 mt-2 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
-            >
-              <GrArticle className="text-3xl text-blue-600" />
-              <span className="text-2xl font-bold text-blue-700 hover:underline">
-                VAI ALLA SEZIONE DI TUTTI GLI ARTICOLI
-              </span>
-            </Link>
-          </section>
+          {/* ... */}
+          <div className="xl:flex xl:flex-between">
+            <section>
+              <ShortLastArticle />
+              <Link
+                to="/articoli"
+                className="flex items-center space-x-3 mt-2 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
+              >
+                <GrArticle className="text-3xl text-blue-600" />
+                <span className="text-2xl font-bold text-blue-700 hover:underline">
+                  VAI ALLA SEZIONE DEGLI ARTICOLI
+                </span>
+              </Link>
+            </section>
+            <section className="xl:flex-between">
+              <ShortNextEvent />
+              <Link
+                to="/articoli"
+                className="flex items-center space-x-3 mt-2 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
+              >
+                <GrArticle className="text-3xl text-blue-600" />
+                <span className="text-2xl font-bold text-blue-700 hover:underline">
+                  VAI ALLA SEZIONE DEI EVENTI
+                </span>
+              </Link>
+            </section>
+          </div>
         </section>
-        <ShortNextEvent />
       </main>
     </>
   );
