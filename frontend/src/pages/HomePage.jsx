@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ShortLastArticle from "./homePageCOMPONENTS/ShortLastArticle";
 import { GrArticle } from "react-icons/gr";
 import ShortNextEvent from "./homePageCOMPONENTS/ShortNextEvent";
+import { Helmet } from "react-helmet-async";
 
 function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -30,6 +31,14 @@ function HomePage() {
 
   return (
     <>
+      <Helmet>
+        {/* Metadati specifici per la HomePage */}
+        <title>Home - Bracciano Nuova CqD</title>
+        <meta
+          name="description"
+          content="Welcome to the homepage of our React app."
+        />
+      </Helmet>
       <main>
         <section className="flex flex-col">
           <div className="flex flex-col xl:flex-row">

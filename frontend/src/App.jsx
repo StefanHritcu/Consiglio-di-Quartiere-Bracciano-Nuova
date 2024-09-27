@@ -2,11 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/footer/Footer";
-import Shop from "./components/shop/Shop";
 import { lazy, Profiler, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
+const ArticoliSection = lazy(() =>
+  import("./components/articoli/ArticoliSection")
+);
 const Territorio = lazy(() => import("./pages/homePageCOMPONENTS/Territorio"));
 const Contatti = lazy(() => import("./pages/homePageCOMPONENTS/Contatti"));
 const IlConsiglio = lazy(() =>
@@ -37,49 +39,31 @@ function App() {
     <HelmetProvider>
       {/* HelmetProvider avvolge l'intera app per gestire i metadati */}
       <div className="flex flex-col min-h-screen">
+        <Header />
         <Helmet>
           {/* Metadati globali, specifici per l'intera applicazione */}
-          <title>4DevShop</title>
+          <title>Bracciano Nuova CdQ</title>
           <meta
             name="description"
             content="This is a React application with Helmet integration."
           />
         </Helmet>
-
-        <Header />
-
         <main className="relative flex-grow mt-44 sm:mt-36 xl:mt-56">
           <Routes>
             <Route
               path="/"
               element={
                 <Profiler id="HomePage" onRender={onRenderApp}>
-                  <Helmet>
-                    {/* Metadati specifici per la HomePage */}
-                    <title>Home Page - 4DevShop</title>
-                    <meta
-                      name="description"
-                      content="Welcome to the homepage of our React app."
-                    />
-                  </Helmet>
                   <HomePage />
                 </Profiler>
               }
             />
             <Route
-              path="/shop"
+              path="/articoli"
               element={
-                <Suspense fallback={<div>Loading Shop...</div>}>
-                  <Profiler id="Shop" onRender={onRenderApp}>
-                    <Helmet>
-                      {/* Metadati specifici per la pagina Shop */}
-                      <title>Shop - 4Dev Shop</title>
-                      <meta
-                        name="description"
-                        content="Browse through our shop."
-                      />
-                    </Helmet>
-                    <Shop />
+                <Suspense fallback={<div>Loading Articoli...</div>}>
+                  <Profiler id="Articoli" onRender={onRenderApp}>
+                    <ArticoliSection />
                   </Profiler>
                 </Suspense>
               }
@@ -89,14 +73,6 @@ function App() {
               element={
                 <Suspense fallback={<div>Loading Territorio...</div>}>
                   <Profiler id="Territorio" onRender={onRenderApp}>
-                    <Helmet>
-                      {/* Metadati specifici per la pagina Territorio */}
-                      <title>Territorio - Bracciano</title>
-                      <meta
-                        name="description"
-                        content="Browse through out Territorio"
-                      />
-                    </Helmet>
                     <Territorio />
                   </Profiler>
                 </Suspense>
@@ -107,14 +83,6 @@ function App() {
               element={
                 <Suspense fallback={<div>Loading Servizi...</div>}>
                   <Profiler id="Servizi" onRender={onRenderApp}>
-                    <Helmet>
-                      {/* Metadati specifici per la pagina Servizi */}
-                      <title>Servizi - Bracciano</title>
-                      <meta
-                        name="description"
-                        content="Browse through out Servizi"
-                      />
-                    </Helmet>
                     <Servizi />
                   </Profiler>
                 </Suspense>
@@ -125,14 +93,6 @@ function App() {
               element={
                 <Suspense fallback={<div>Loading Il Consiglio...</div>}>
                   <Profiler id="consiglio" onRender={onRenderApp}>
-                    <Helmet>
-                      {/* Metadati specifici per la pagina Il Consiglio */}
-                      <title>Il Consiglio - Bracciano</title>
-                      <meta
-                        name="description"
-                        content="Browse through out Il Consiglio"
-                      />
-                    </Helmet>
                     <IlConsiglio />
                   </Profiler>
                 </Suspense>
@@ -143,14 +103,6 @@ function App() {
               element={
                 <Suspense fallback={<div>Caricamento dei Contatti...</div>}>
                   <Profiler id="Contatti" onRender={onRenderApp}>
-                    <Helmet>
-                      {/* Metadati specifici per la pagina Contatti */}
-                      <title>Contatti - Bracciano</title>
-                      <meta
-                        name="description"
-                        content="Browse through out Contatti"
-                      />
-                    </Helmet>
                     <Contatti />
                   </Profiler>
                 </Suspense>
