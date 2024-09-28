@@ -1,9 +1,39 @@
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setUtenteHaScollatoFinoAInizioFooter } from "./../../redux/slices/mainSlice";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Logo from "./../../assets/images/braccianoNuovaLogo.png";
 
 function Footer() {
+  const dispatch = useDispatch();
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (footerRef.current) {
+        const footerTop = footerRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        // Se l'utente ha raggiunto o superato il footer
+        if (footerTop <= windowHeight) {
+          dispatch(setUtenteHaScollatoFinoAInizioFooter(true));
+        } else {
+          dispatch(setUtenteHaScollatoFinoAInizioFooter(false));
+        }
+      }
+    };
+
+    // Aggiungi l'evento di scroll
+    window.addEventListener("scroll", handleScroll);
+
+    // Rimuovi l'evento di scroll quando il componente viene smontato
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [dispatch]);
+
   return (
-    <footer className="bg-primary text-white py-8">
+    <footer ref={footerRef} className="bg-primary text-white py-8">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start">
           {/* Sezione Logo */}
@@ -40,6 +70,7 @@ function Footer() {
               </p>
             </address>
           </section>
+
           {/* Sezione Links Utili */}
           <section aria-label="Links Utili" className="mb-6 md:mb-0">
             <h2 className="text-lg font-bold">Links Utili</h2>
@@ -61,6 +92,7 @@ function Footer() {
               </li>
             </ul>
           </section>
+
           {/* Sezione Social Media */}
           <section
             aria-label="Social Media"

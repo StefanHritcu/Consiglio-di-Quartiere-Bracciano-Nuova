@@ -22,6 +22,10 @@ function Header() {
     dispatch(setIsOpen(!isOpenStatus));
   };
 
+  const statusFooterScrollingLevel = useSelector(
+    (state) => state.forDev.utenteHaScollatoFinoAInizioFooter
+  );
+
   const location = useLocation();
   const [scrollingDown, setScrollingDown] = useState(false);
 
@@ -37,12 +41,11 @@ function Header() {
     };
 
     const mediaQuery = window.matchMedia("(min-width: 700px)");
-
     const handleResize = () => setIsWideScreen(mediaQuery.matches);
 
     mediaQuery.addEventListener("change", handleResize);
-
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       mediaQuery.removeEventListener("change", handleResize);
@@ -55,6 +58,15 @@ function Header() {
     config: { duration: 200 },
   });
 
+  // Nuovo spring per spostare il header verso l'alto e farlo scomparire
+  const headerSpring = useSpring({
+    opacity: statusFooterScrollingLevel ? 0 : 1,
+    transform: statusFooterScrollingLevel
+      ? "translateY(-100%)"
+      : "translateY(0)",
+    config: { duration: 600 },
+  });
+
   const [isButtonFirstHeaderClicked, setIsButtonFirstHeaderClicked] =
     useState(false);
   const handleCloseFirstHeader = () => {
@@ -63,7 +75,10 @@ function Header() {
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-primary">
+      <animated.header
+        style={headerSpring}
+        className="fixed top-0 w-full z-50 bg-primary"
+      >
         <div>
           {/* NEW RELEASE ALERT */}
           <animated.section
@@ -314,7 +329,7 @@ function Header() {
             </div>
           </div>
         </nav>
-      </header>
+      </animated.header>
     </>
   );
 }

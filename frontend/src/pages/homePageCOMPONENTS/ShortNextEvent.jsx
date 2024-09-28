@@ -72,7 +72,7 @@ function ShortNextEvent() {
         </div>
       </footer>
       <Link
-        to="/articoli"
+        to="/articoli/eventi"
         className="flex items-center mt-6 space-x-3 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
       >
         <GrArticle className="text-3xl text-blue-600" />

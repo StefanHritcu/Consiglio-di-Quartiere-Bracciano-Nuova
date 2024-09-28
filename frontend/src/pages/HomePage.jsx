@@ -11,6 +11,7 @@ import { FaTrain } from "react-icons/fa";
 import { GiCapitol } from "react-icons/gi";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FaConciergeBell } from "react-icons/fa";
+import CosaFacciamo from "./homePageCOMPONENTS/CosaFacciamo";
 
 function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -134,7 +135,7 @@ function HomePage() {
               </nav>
             </div>
           </div>
-          {/* ... */}
+          {/* LAST SHORT ARTICLE AND NEXT SHORT EVENT */}
           <div className="xl:flex xl:justify-between xl:space-x-10">
             <section className="flex-1">
               <ShortLastArticle />
@@ -142,6 +143,9 @@ function HomePage() {
             <section className="flex-1">
               <ShortNextEvent />
             </section>
+          </div>
+          <div>
+            <CosaFacciamo />
           </div>
         </section>
       </main>
