@@ -4,27 +4,26 @@ import { MdAccessTime } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import LastArticleExampleImage from "./../../assets/images/lastArticleExampleImage.jpg";
+import { GrArticle } from "react-icons/gr";
 
 function ShortLastArticle() {
-  {
-    /* PRENDO L ULTIMO OGGETTO DELL'ARRAY DEL JSON ARTICLES.JS */
-  }
+  // PRENDO L'ULTIMO OGGETTO DELL'ARRAY DEL JSON ARTICLES.JS
   const lastArticle = articles[articles.length - 1];
 
   return (
-    <div className="max-w-2xl mx-auto p-10 bg-white shadow-md rounded-lg mt-8 xl:w-screen xl:mx-16">
-      <h1 className="text-2xl font-bold mb-2 text-center text-gray-800">
+    <article className="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto my-6 lg:max-w-2xl h-auto">
+      <h1 className="text-2xl font-bold text-center text-primary mb-4">
         Ultima Notizia
       </h1>
       <Link
         to="/lastarticle"
-        className="pt-6 hover:scale-105 transition-transform duration-300 block"
+        className="hover:scale-105 transition-transform duration-300 block"
       >
         {/* IMMAGINE */}
         <img
           src={LastArticleExampleImage}
           alt="Example image"
-          className="w-full h-60 object-cover rounded-lg"
+          className="w-full h-48 object-cover rounded-lg"
         />
         {/* TITOLO */}
         <h2 className="mt-4 text-xl font-semibold text-gray-800">
@@ -55,15 +54,31 @@ function ShortLastArticle() {
           {lastArticle.content.length > 300 ? "..." : ""}
         </p>
         {/* HASTAGS  */}
-        <div className="mt-4">
-          {lastArticle.hashtags.map((hashtag) => (
-            <span key={hashtag} className="inline-block mr-2 text-blue-600">
-              #{hashtag}
-            </span>
-          ))}
+        <div className=" flex justify-between items-center mt-4">
+          <div>
+            {lastArticle.hashtags.map((hashtag) => (
+              <span key={hashtag} className="inline-block mr-2 text-blue-600">
+                #{hashtag}
+              </span>
+            ))}
+          </div>
+
+          <Link className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+            <h2>Scopri di piu</h2>
+          </Link>
         </div>
       </Link>
-    </div>
+
+      <Link
+        to="/articoli"
+        className="flex items-center mt-6 space-x-3 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
+      >
+        <GrArticle className="text-3xl text-blue-600" />
+        <span className="text-2xl font-bold text-blue-700 hover:underline">
+          VAI ALLA SEZIONE DEGLI ARTICOLI
+        </span>
+      </Link>
+    </article>
   );
 }
 

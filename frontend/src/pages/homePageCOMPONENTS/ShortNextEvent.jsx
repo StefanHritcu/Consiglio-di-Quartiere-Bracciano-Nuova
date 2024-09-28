@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import Event from "./../../DATA/Events";
 import EventImageExample from "./../../assets/images/eventExample.jpg";
+import { GrArticle } from "react-icons/gr";
 
 function ShortNextEvent() {
   // Ottieni la data attuale
@@ -19,7 +21,7 @@ function ShortNextEvent() {
   }
 
   return (
-    <article className="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto my-6 lg:max-w-2xl">
+    <article className="hover:scale-105 transition-transform duration-300 bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto my-6 lg:max-w-2xl h-auto">
       <h1 className="text-2xl font-bold text-center text-primary mb-4">
         Prossimo Evento
       </h1>
@@ -69,6 +71,15 @@ function ShortNextEvent() {
           </a>
         </div>
       </footer>
+      <Link
+        to="/articoli"
+        className="flex items-center mt-6 space-x-3 sm:ml-6 p-6 xl:ml-0 xl:p-2 xl:mr-10"
+      >
+        <GrArticle className="text-3xl text-blue-600" />
+        <span className="text-2xl font-bold text-blue-700 hover:underline">
+          VAI ALLA SEZIONE DEI EVENTI
+        </span>
+      </Link>
     </article>
   );
 }
