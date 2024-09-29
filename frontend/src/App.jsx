@@ -15,6 +15,9 @@ const IlConsiglio = lazy(() =>
   import("./pages/homePageCOMPONENTS/IlConsiglio")
 );
 const Servizi = lazy(() => import("./pages/homePageCOMPONENTS/Servizi"));
+const ContattaProgrammatore = lazy(() =>
+  import("./pages/ContattaProgrammatore")
+);
 
 function App() {
   const onRenderApp = (
@@ -138,6 +141,27 @@ function App() {
                 >
                   <Profiler id="Servizi" onRender={onRenderApp}>
                     <Servizi />
+                  </Profiler>
+                </Suspense>
+              }
+            />
+            <Route
+              path="/contattaprogrammatore"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-screen bg-opacity-50">
+                      <div className="flex flex-col items-center">
+                        <FaSpinner className="animate-spin text-white text-4xl mb-4" />
+                        <div className="text-white text-lg">
+                          Loading Contatta il Programmatore...
+                        </div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <Profiler id="Contatta-Programmatore" onRender={onRenderApp}>
+                    <ContattaProgrammatore />
                   </Profiler>
                 </Suspense>
               }

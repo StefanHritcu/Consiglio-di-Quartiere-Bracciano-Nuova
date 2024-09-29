@@ -1,12 +1,25 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setUtenteHaScollatoFinoAInizioFooter } from "./../../redux/slices/mainSlice";
+
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Logo from "./../../assets/images/braccianoNuovaLogo.png";
+import { Link } from "react-router-dom";
+import {
+  setIstContattaProgrammatoreClicked,
+  setUtenteHaScollatoFinoAInizioFooter,
+} from "../../redux/slices/mainSlice";
 
 function Footer() {
   const dispatch = useDispatch();
   const footerRef = useRef(null);
+  const canvasRef = useRef(null);
+  const statusContattaProgrammatore = useSelector(
+    (state) => state.forDev.isContattaProgrammatoreClicked
+  );
+
+  const handleClickedOnContattaProgrammatore = () => {
+    dispatch(setIstContattaProgrammatoreClicked(!statusContattaProgrammatore));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +27,6 @@ function Footer() {
         const footerTop = footerRef.current.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        // Se l'utente ha raggiunto o superato il footer
         if (footerTop <= windowHeight) {
           dispatch(setUtenteHaScollatoFinoAInizioFooter(true));
         } else {
@@ -23,14 +35,93 @@ function Footer() {
       }
     };
 
-    // Aggiungi l'evento di scroll
     window.addEventListener("scroll", handleScroll);
 
-    // Rimuovi l'evento di scroll quando il componente viene smontato
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const balls = [];
+    const colors = [
+      "rgba(131,164,212,0.8)",
+      "rgba(137,194,217,0.6)",
+      "rgba(173,181,189,0.5)",
+      "rgba(163,188,247,0.7)",
+      "rgba(69,123,157,0.6)",
+    ];
+
+    // Crea palline con dimensioni, opacità e velocità casuali
+    for (let i = 0; i < 25; i++) {
+      balls.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 20 + 10, // Palline di diverse dimensioni
+        color: colors[Math.floor(Math.random() * colors.length)],
+        dx: (Math.random() - 0.5) * 3, // Velocità casuale in x
+        dy: (Math.random() - 0.5) * 3, // Velocità casuale in y
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      balls.forEach((ball) => {
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, false);
+
+        // Aggiungi un effetto sfumato
+        const gradient = ctx.createRadialGradient(
+          ball.x,
+          ball.y,
+          ball.radius * 0.5,
+          ball.x,
+          ball.y,
+          ball.radius
+        );
+        gradient.addColorStop(0, ball.color);
+        gradient.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.fillStyle = gradient;
+
+        ctx.filter = "blur(8px)"; // Aumenta il blur per un effetto più soft
+        ctx.fill();
+
+        // Gestione del rimbalzo
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+          ball.dx = -ball.dx;
+        }
+        if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+          ball.dy = -ball.dy;
+        }
+
+        // Aggiorna la posizione
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    // Gestisce il ridimensionamento della finestra per mantenere il canvas responsive
+    const handleResize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <footer ref={footerRef} className="bg-primary text-white py-8">
@@ -143,12 +234,30 @@ function Footer() {
           &copy; {new Date().getFullYear()} Bracciano Nuova. Tutti i diritti
           riservati.
         </p>
-        <p className="flex justify-center items-center text-sm">
-          Creato da{" "}
-          <span className="animate-pulse text-gradient ml-1">
-            Stefan Hritcu
-          </span>
-        </p>
+        {/* Banner per contattare il programmatore */}
+        <div
+          className={`${
+            statusContattaProgrammatore ? "hidden" : "block"
+          } relative w-96 mx-auto bg-blue-600 text-center py-8 mt-6 rounded-lg overflow-hidden`}
+        >
+          {/* Canvas per le palline */}
+          <canvas
+            ref={canvasRef}
+            className="absolute top-0 left-0 w-full h-full z-0"
+          ></canvas>
+          <div className="relative z-10">
+            <h3 className="text-lg font-bold text-white">
+              Hai domande? Contatta il programmatore!
+            </h3>
+            <Link
+              onClick={handleClickedOnContattaProgrammatore}
+              to="/contattaprogrammatore"
+              className="mt-2 inline-block px-6 py-2 bg-white text-blue-900 font-bold rounded-lg hover:bg-gray-200 transition duration-300"
+            >
+              Contatta Stefan Hritcu
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -6,6 +6,7 @@ const initialState = {
   //e rimpiciollisco il header per avere maggior spazio e
   //dare uno stile piu bello.
   utenteHaScollatoFinoAInizioFooter: false,
+  isContattaProgrammatoreClicked: false,
 };
 
 const mainSlice = createSlice({
@@ -19,10 +20,16 @@ const mainSlice = createSlice({
     setUtenteHaScollatoFinoAInizioFooter: (state, action) => {
       state.utenteHaScollatoFinoAInizioFooter = action.payload;
     },
+    setIstContattaProgrammatoreClicked: (state, action) => {
+      state.isContattaProgrammatoreClicked = action.payload;
+    },
   },
 });
 
-export const { setIsOpen, setUtenteHaScollatoFinoAInizioFooter } =
-  mainSlice.actions;
+export const {
+  setIsOpen,
+  setUtenteHaScollatoFinoAInizioFooter,
+  setIstContattaProgrammatoreClicked,
+} = mainSlice.actions;
 
 export default mainSlice.reducer;

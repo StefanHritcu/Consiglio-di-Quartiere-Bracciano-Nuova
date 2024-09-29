@@ -86,16 +86,17 @@ function CosaFacciamo() {
           <div className="flex flex-wrap justify-center gap-6">
             <blockquote className="bg-white shadow-md rounded-lg p-4 w-72">
               <p className="text-gray-700">
-                "Grazie al consiglio di quartiere, ho scoperto eventi che non
-                avrei mai conosciuto. La comunità è diventata un luogo
-                migliore!"
+                &apos;Grazie al consiglio di quartiere, ho scoperto eventi che
+                non avrei mai conosciuto. La comunità è diventata un luogo
+                migliore!&apos;
               </p>
               <footer className="mt-2 text-sm text-gray-500">- Mario R.</footer>
             </blockquote>
             <blockquote className="bg-white shadow-md rounded-lg p-4 w-72">
               <p className="text-gray-700">
-                "La comunicazione con il comune è migliorata notevolmente. È
-                bello vedere un impegno così forte per il nostro quartiere."
+                &apos;La comunicazione con il comune è migliorata notevolmente.
+                È bello vedere un impegno così forte per il nostro
+                quartiere.&apos;
               </p>
               <footer className="mt-2 text-sm text-gray-500">- Laura G.</footer>
             </blockquote>
@@ -108,7 +109,7 @@ function CosaFacciamo() {
             Galleria Eventi
           </h2>
           <p className="text-center text-gray-600 mb-8">
-            Dai un'occhiata ai momenti salienti dei nostri eventi recenti!
+            Dai un&apos;occhiata ai momenti salienti dei nostri eventi recenti!
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Immagini degli eventi */}
@@ -192,8 +193,8 @@ function CosaFacciamo() {
             className="w-full md:w-2/3 mx-auto rounded-lg shadow-lg"
           />
           <p className="text-gray-600 mt-4">
-            Clicca sull'immagine per esplorare la mappa interattiva della nostra
-            bellissima città!
+            Clicca sull&apos;immagine per esplorare la mappa interattiva della
+            nostra bellissima città!
           </p>
           <Link
             to="/map"
