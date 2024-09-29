@@ -7,7 +7,6 @@ import { MdAccessTime } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import LastArticleExampleImage from "./../../assets/images/lastArticleExampleImage.jpg";
-import { GrArticle } from "react-icons/gr";
 
 function ArticoliSection() {
   // Ordina le notizie, gli eventi e gli articoli
@@ -29,15 +28,47 @@ function ArticoliSection() {
       </Helmet>
       <div className="container mx-auto p-4">
         <h1 className="text-3xl font-bold mb-6">
-          Sezione degli articoli, eventi e altro
+          Scopri le tre categorie di argomenti che potrebbero interessarti su
+          Bracciano, insieme ai migliori consigli per il quartiere di Bracciano
+          Nuova.
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {/* Sezione Notizie */}
+        <nav className="xl:hidden bg-gray-100 text-gray-800 rounded-lg p-4 shadow-lg mb-4">
+          <p className="text-gray-800 text-2xl text-center mb-4">INDICE</p>
+          <ul className="flex justify-around">
+            <li>
+              <a
+                href="#notizie"
+                className="hover:bg-primary hover:text-white rounded px-4 py-2 transition"
+              >
+                Notizie
+              </a>
+            </li>
+            <li>
+              <a
+                href="#eventi"
+                className="hover:bg-primary hover:text-white rounded px-4 py-2 transition"
+              >
+                Eventi
+              </a>
+            </li>
+            <li>
+              <a
+                href="#articoli"
+                className="hover:bg-primary hover:text-white rounded px-4 py-2 transition"
+              >
+                Articoli
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8">
+          {/* --------------------------------> Sezione notizie <-------------------------------- */}
           <div className="bg-white rounded-lg shadow-md p-4">
             <h2 className="text-xl font-semibold mb-4">Notizie</h2>
             {sortedNews.map((item, index) => (
               <div
+                id="notizie"
                 key={index}
                 className={`bg-gray-100 rounded-lg p-4 mb-4 transition-transform transform hover:scale-105 ${
                   index === 0 ? "border-4 border-primary" : ""
@@ -78,8 +109,8 @@ function ArticoliSection() {
             ))}
           </div>
 
-          {/* Sezione Eventi */}
-          <div className="bg-white rounded-lg shadow-md p-4">
+          {/* --------------------------------> Sezione Eventi <-------------------------------- */}
+          <div id="eventi" className="bg-white rounded-lg shadow-md p-4">
             <h2 className="text-xl font-semibold mb-4">Eventi</h2>
             {sortedEvents.map((event, index) => (
               <div
@@ -90,10 +121,15 @@ function ArticoliSection() {
               >
                 {index === 0 && (
                   <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded">
-                    Prossimo evento
+                    Evento più vicino
                   </span>
                 )}
                 <Link to={`/events/${event.id}`} className="block">
+                  <img
+                    src={LastArticleExampleImage}
+                    alt={"image"}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
                   <h3 className="font-medium text-lg">{event.titolo}</h3>
                   <p className="text-gray-600 mt-2">{event.descrizioneShort}</p>
                   <p className="mt-1 flex items-center text-sm text-gray-500">
@@ -111,11 +147,12 @@ function ArticoliSection() {
             ))}
           </div>
 
-          {/* Sezione Articoli */}
+          {/* --------------------------------> Sezione Articoli <-------------------------------- */}
           <div className="bg-white rounded-lg shadow-md p-4">
             <h2 className="text-xl font-semibold mb-4">Articoli</h2>
             {sortedArticles.map((article, index) => (
               <div
+                id="articoli"
                 key={article.id}
                 className={`bg-gray-100 rounded-lg p-4 mb-4 transition-transform transform hover:scale-105 ${
                   index === 0 ? "border-4 border-primary" : ""
@@ -127,6 +164,11 @@ function ArticoliSection() {
                   </span>
                 )}
                 <Link to={`/articles/${article.id}`} className="block">
+                  <img
+                    src={LastArticleExampleImage}
+                    alt={"image"}
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
                   <h3 className="font-medium text-lg">{article.title}</h3>
                   <p className="text-gray-600 mt-2">
                     {article.shortDescription}

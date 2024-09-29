@@ -23,7 +23,7 @@ import {
 
 function ContattaProgrammatore() {
   return (
-    <div className="bg-gray-900 text-white py-12 md:-mt-10 px-4 md:px-16 lg:px-32">
+    <div className="bg-gray-900 text-white py-12 md:-mt-10 px-4 md:px-16 lg:px-32 mt-22">
       <div className="container mx-auto flex flex-col lg:flex-row items-center lg:items-start space-y-12 lg:space-y-0 lg:space-x-12">
         {/* Foto del Programmatore */}
         <div className="flex-shrink-0">
