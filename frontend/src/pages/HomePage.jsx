@@ -12,6 +12,7 @@ import { GiCapitol } from "react-icons/gi";
 import { FaQuestionCircle } from "react-icons/fa";
 import { FaConciergeBell } from "react-icons/fa";
 import CosaFacciamo from "./homePageCOMPONENTS/CosaFacciamo";
+import AvvisoImportante from "./homePageCOMPONENTS/AvvisoImportante";
 
 function HomePage() {
   const [scrollY, setScrollY] = useState(0);
@@ -33,6 +34,14 @@ function HomePage() {
     transform: `scale(${1 - Math.min(scrollY / 4000, 0.1)})`,
     transition: "transform 0.3s ease-in-out",
   };
+  // Messaggio importante
+  const messages = [
+    "Avviso per Daniele e a tutti i membri del Consiglio di quartiere Bracciano Nuova, ho bisogno anche del vostro aiuto!",
+    "Ho neccessità prima possibile di un feedback da parte vostra per quanta riguarda la struttura del progetto, vi sta piacendo?",
+    "Per la prima domenica di ottombre ho bisogno di avere gia un po di dati da parte vostra come immagini di repertorio di bracciano",
+    "possibilmente originali fatte dai membri evitando rogne di copyright, i nomi e cognomi dei membri, immagine di gruppo e links di contatto dell consiglio.",
+    "Grazie e a presto, Stefan",
+  ];
 
   return (
     <>
@@ -45,6 +54,10 @@ function HomePage() {
         />
       </Helmet>
       <main>
+        <div className="App">
+          <AvvisoImportante messages={messages} />
+          {/* Il resto della tua pagina qui */}
+        </div>
         <section className="flex flex-col">
           <div className="flex flex-col xl:flex-row">
             <img
