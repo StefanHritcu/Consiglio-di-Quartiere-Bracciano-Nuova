@@ -5,7 +5,8 @@ import Footer from "./components/footer/Footer";
 import { lazy, Profiler, Suspense } from "react";
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { FaSpinner } from "react-icons/fa";
-import ScrollToTop from "./pages/ScriollToTop";
+import BackToTop from "./components/BackToTop";
+import ScrollToTopFunction from "./ScrollToTopFunction";
 
 const ToggleMenu = lazy(() => import("./components/toggleMenu/ToggleMenu"));
 const ArticoliSection = lazy(() =>
@@ -53,7 +54,8 @@ function App() {
           />
         </Helmet>
         <main className="relative flex-grow mt-44 sm:mt-36 xl:mt-56">
-          <ScrollToTop />
+          <BackToTop />
+          <ScrollToTopFunction />
           <Routes>
             <Route
               path="/"
