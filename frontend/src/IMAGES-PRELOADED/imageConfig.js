@@ -24,4 +24,24 @@ export const imagesToPreload = [
     src: "./../assets/images/programmatoreImg.png",
     alt: "Programmatore image",
   },
+  {
+    src: "./../assets/servizi/cittadini-img.jpg",
+    alt: "SERVICE - Cittadini image",
+  },
+  {
+    src: "./../assets/servizi/commercio-img.jpg",
+    alt: "SERVICE - Commercio image",
+  },
+  {
+    src: "./../assets/servizi/iniziative-img.jpg",
+    alt: "SERVICE - Iniziative image",
+  },
+  {
+    src: "./../assets/servizi/ricretive-img.jpg",
+    alt: "SERVICE - Ricreative image",
+  },
+  {
+    src: "./../assets/servizi/sociali-img.jpg",
+    alt: "SERVICE - Sociali image",
+  },
 ];

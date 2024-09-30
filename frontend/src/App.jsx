@@ -16,7 +16,9 @@ const Territorio = lazy(() => import("./pages/homePageCOMPONENTS/Territorio"));
 const IlConsiglio = lazy(() =>
   import("./pages/homePageCOMPONENTS/IlConsiglio")
 );
-const Servizi = lazy(() => import("./pages/homePageCOMPONENTS/Servizi"));
+const Servizi = lazy(() =>
+  import("./pages/homePageCOMPONENTS/SERVIZI/Servizi")
+);
 const ContattaProgrammatore = lazy(() =>
   import("./pages/ContattaProgrammatore")
 );
